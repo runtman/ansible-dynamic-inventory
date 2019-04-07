@@ -31,8 +31,8 @@ if args.list:
   droplets = results['droplets']
 
   # Build up final dictionary structure
-  inventory['du-deployment'] = {}
-  inventory['du-deployment']['hosts'] = []
+  inventory['GroupName'] = {}
+  inventory['GroupName']['hosts'] = []
   inventory['_meta'] = {}
   inventory['_meta']['hostvars'] = {}
   hosts = []
@@ -48,7 +48,7 @@ if args.list:
     inventory['_meta']['hostvars'][hostIp] = { 'server_hostname': hostName, 'tags': hostTags, 'ansible_host': hostIp }
 
   for h in hosts:
-      inventory['du-deployment']['hosts'].append(h)
+      inventory['GroupName']['hosts'].append(h)
 
   inv_string = json.dumps(inventory, indent=1, sort_keys=True)
   print(inv_string)
